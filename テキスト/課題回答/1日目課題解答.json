@@ -1,0 +1,618 @@
+[
+    {
+        "id": "c2ab6afddbc8d9fd",
+        "type": "tab",
+        "label": "課題2-1",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "42ea77577736ddcd",
+        "type": "inject",
+        "z": "c2ab6afddbc8d9fd",
+        "name": "LED_ON",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 440,
+        "y": 160,
+        "wires": [
+            [
+                "491bcb563ceefb2f"
+            ]
+        ]
+    },
+    {
+        "id": "491bcb563ceefb2f",
+        "type": "rpi-gpio out",
+        "z": "c2ab6afddbc8d9fd",
+        "name": "LED",
+        "pin": "5",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 670,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "3087612afe4c82db",
+        "type": "inject",
+        "z": "c2ab6afddbc8d9fd",
+        "name": "LED_OFF",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 440,
+        "y": 300,
+        "wires": [
+            [
+                "491bcb563ceefb2f"
+            ]
+        ]
+    },
+    {
+        "id": "7c948922fe5be5a4",
+        "type": "tab",
+        "label": "課題②-2",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8f53068cecb6f1ff",
+        "type": "inject",
+        "z": "7c948922fe5be5a4",
+        "name": "START",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 360,
+        "y": 120,
+        "wires": [
+            [
+                "aaec491ed73eeac2",
+                "390ffb4d2b7f3c42"
+            ]
+        ]
+    },
+    {
+        "id": "aaec491ed73eeac2",
+        "type": "rpi-gpio out",
+        "z": "7c948922fe5be5a4",
+        "name": "LED",
+        "pin": "5",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 990,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "390ffb4d2b7f3c42",
+        "type": "delay",
+        "z": "7c948922fe5be5a4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "3f811d98e85eb0d9"
+            ]
+        ]
+    },
+    {
+        "id": "3f811d98e85eb0d9",
+        "type": "change",
+        "z": "7c948922fe5be5a4",
+        "name": "change_OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 200,
+        "wires": [
+            [
+                "aaec491ed73eeac2"
+            ]
+        ]
+    },
+    {
+        "id": "912afcec7ea2704a",
+        "type": "tab",
+        "label": "課題3-1",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4961972133958f74",
+        "type": "rpi-gpio in",
+        "z": "912afcec7ea2704a",
+        "name": "BUTTON",
+        "pin": "6",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "80df8ba4269b3a58"
+            ]
+        ]
+    },
+    {
+        "id": "80df8ba4269b3a58",
+        "type": "rpi-gpio out",
+        "z": "912afcec7ea2704a",
+        "name": "LED",
+        "pin": "5",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 690,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1173f49e18c98efd",
+        "type": "tab",
+        "label": "課題3-2",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e0956d2bdd63a72f",
+        "type": "rpi-gpio in",
+        "z": "1173f49e18c98efd",
+        "name": "BUTTON",
+        "pin": "6",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 360,
+        "y": 300,
+        "wires": [
+            [
+                "ae9299ba56519ced"
+            ]
+        ]
+    },
+    {
+        "id": "c3aca82daf30de08",
+        "type": "rpi-gpio out",
+        "z": "1173f49e18c98efd",
+        "name": "LED",
+        "pin": "5",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1050,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ae9299ba56519ced",
+        "type": "switch",
+        "z": "1173f49e18c98efd",
+        "name": "HL判別",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 560,
+        "y": 300,
+        "wires": [
+            [
+                "92f86e0d776395be"
+            ],
+            [
+                "39e93ccfb591afc8"
+            ]
+        ]
+    },
+    {
+        "id": "92f86e0d776395be",
+        "type": "change",
+        "z": "1173f49e18c98efd",
+        "name": "LED_ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 260,
+        "wires": [
+            [
+                "c3aca82daf30de08"
+            ]
+        ]
+    },
+    {
+        "id": "39e93ccfb591afc8",
+        "type": "change",
+        "z": "1173f49e18c98efd",
+        "name": "LED_OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 340,
+        "wires": [
+            [
+                "c3aca82daf30de08"
+            ]
+        ]
+    },
+    {
+        "id": "23889aa937d90583",
+        "type": "tab",
+        "label": "課題4-1,2",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9f208ef797c3e245",
+        "type": "inject",
+        "z": "23889aa937d90583",
+        "name": "START",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.3",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "47c1fc6465e31d33"
+            ]
+        ]
+    },
+    {
+        "id": "47c1fc6465e31d33",
+        "type": "grove-light-sensor-v1_2",
+        "z": "23889aa937d90583",
+        "name": "",
+        "port_number": 0,
+        "x": 330,
+        "y": 260,
+        "wires": [
+            [
+                "c6780a773167226b"
+            ]
+        ]
+    },
+    {
+        "id": "4b9e074ca1041fa5",
+        "type": "debug",
+        "z": "23889aa937d90583",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c6780a773167226b",
+        "type": "switch",
+        "z": "23889aa937d90583",
+        "name": "明るさ判定",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "300",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "200",
+                "vt": "num"
+            },
+            {
+                "t": "lt",
+                "v": "200",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "741ad5c31e1e9afe"
+            ],
+            [
+                "ac1fcc228c135015"
+            ],
+            [
+                "7059be638d952bcc"
+            ]
+        ]
+    },
+    {
+        "id": "741ad5c31e1e9afe",
+        "type": "change",
+        "z": "23889aa937d90583",
+        "name": "明るい",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "明るい",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 180,
+        "wires": [
+            [
+                "4b9e074ca1041fa5",
+                "e81fe9d563308b5e"
+            ]
+        ]
+    },
+    {
+        "id": "ac1fcc228c135015",
+        "type": "change",
+        "z": "23889aa937d90583",
+        "name": "普通",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "普通",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 260,
+        "wires": [
+            [
+                "4b9e074ca1041fa5",
+                "e81fe9d563308b5e"
+            ]
+        ]
+    },
+    {
+        "id": "7059be638d952bcc",
+        "type": "change",
+        "z": "23889aa937d90583",
+        "name": "暗い",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "暗い",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 340,
+        "wires": [
+            [
+                "4b9e074ca1041fa5",
+                "35d35467b5588c80"
+            ]
+        ]
+    },
+    {
+        "id": "e81fe9d563308b5e",
+        "type": "change",
+        "z": "23889aa937d90583",
+        "name": "LED_OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 160,
+        "wires": [
+            [
+                "70e79a89d8f46e44"
+            ]
+        ]
+    },
+    {
+        "id": "35d35467b5588c80",
+        "type": "change",
+        "z": "23889aa937d90583",
+        "name": "LED_ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 340,
+        "wires": [
+            [
+                "70e79a89d8f46e44"
+            ]
+        ]
+    },
+    {
+        "id": "70e79a89d8f46e44",
+        "type": "rpi-gpio out",
+        "z": "23889aa937d90583",
+        "name": "LED",
+        "pin": "5",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1230,
+        "y": 260,
+        "wires": []
+    }
+]
